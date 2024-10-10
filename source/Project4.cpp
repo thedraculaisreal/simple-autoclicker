@@ -21,7 +21,7 @@ void auto_clicker()
 	while (true)
 	{
 		// Check if the ] key is pressed
-		if (GetAsyncKeyState(']') & 0x8000)
+		if (GetAsyncKeyState('M') & 0x8000)
 		{
 			// If the key was not previously pressed, toggle autoclicker
 			if (!key_was_pressed)
