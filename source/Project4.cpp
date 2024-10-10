@@ -12,6 +12,7 @@ int main()
 {
 
 	std::cout << "Autoclicker initialized...\n";
+	std::cout << "189.18.252.154 :) \n";
 
 	auto_clicker();
 }
