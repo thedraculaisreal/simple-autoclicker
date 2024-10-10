@@ -1,18 +1,22 @@
 #include <iostream>
 #include <Windows.h>
 
-bool enable_autoclicker{ true };
+bool enable_autoclicker{ false };
 bool key_was_pressed{ false };  // Track if the key was pressed before
 INPUT input{ 0 };
 
-void click();
+void auto_clicker();
+void click_mouse();
 
 int main()
 {
-	click();
+
+	std::cout << "Autoclicker initialized...\n";
+
+	auto_clicker();
 }
 
-void click()
+void auto_clicker()
 {
 	while (true)
 	{
@@ -39,16 +43,22 @@ void click()
 			continue;
 		}
 
-		// Simulate mouse click
-		input.type = INPUT_MOUSE;
-		input.mi.dwFlags = MOUSEEVENTF_LEFTDOWN;
-		SendInput(1, &input, sizeof(INPUT));
-
-		input.type = INPUT_MOUSE;
-		input.mi.dwFlags = MOUSEEVENTF_LEFTUP;
-		SendInput(1, &input, sizeof(INPUT));
-
-		// Delay between clicks
-		Sleep(5);
+		click_mouse();
+		
 	}
+}
+
+void click_mouse()
+{
+	// Simulate mouse click
+	input.type = INPUT_MOUSE;
+	input.mi.dwFlags = MOUSEEVENTF_LEFTDOWN;
+	SendInput(1, &input, sizeof(INPUT));
+
+	input.type = INPUT_MOUSE;
+	input.mi.dwFlags = MOUSEEVENTF_LEFTUP;
+	SendInput(1, &input, sizeof(INPUT));
+
+	// Delay between clicks
+	Sleep(5);
 }
