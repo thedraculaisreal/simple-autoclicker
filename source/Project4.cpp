@@ -21,28 +21,15 @@ void auto_clicker()
 {
 	while (true)
 	{
-		// Check if the ] key is pressed
-		if (GetAsyncKeyState('M') & 0x8000)
+		// Check if the M key is pressed
+		if (GetAsyncKeyState('M') & 0x1)
 		{
-			// If the key was not previously pressed, toggle autoclicker
-			if (!key_was_pressed)
-			{
-				enable_autoclicker = !enable_autoclicker;
-				key_was_pressed = true; // Mark the key as pressed
-			}
-		}
-		else
-		{
-			// Reset the key pressed flag once the key is released
-			key_was_pressed = false;
+
+			enable_autoclicker = !enable_autoclicker;
 		}
 
-		// If autoclicker is disabled, skip clicking
 		if (!enable_autoclicker)
-		{
-			Sleep(10);
 			continue;
-		}
 
 		click_mouse();
 		
