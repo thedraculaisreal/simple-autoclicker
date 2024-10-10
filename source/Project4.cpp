@@ -20,8 +20,8 @@ void auto_clicker()
 {
 	while (true)
 	{
-		// Check if the M key is pressed
-		if (GetAsyncKeyState('M') & 0x8000)
+		// Check if the ] key is pressed
+		if (GetAsyncKeyState(']') & 0x8000)
 		{
 			// If the key was not previously pressed, toggle autoclicker
 			if (!key_was_pressed)
@@ -50,6 +50,8 @@ void auto_clicker()
 
 void click_mouse()
 {
+
+	int time{ rand() % 50 + 10 };
 	// Simulate mouse click
 	input.type = INPUT_MOUSE;
 	input.mi.dwFlags = MOUSEEVENTF_LEFTDOWN;
@@ -60,5 +62,5 @@ void click_mouse()
 	SendInput(1, &input, sizeof(INPUT));
 
 	// Delay between clicks
-	Sleep(5);
+	Sleep((DWORD)time);
 }
