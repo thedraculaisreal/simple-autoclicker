@@ -38,8 +38,9 @@ void auto_clicker()
 
 void click_mouse()
 {
-
-	int time{ rand() % 50 + 10 };
+	
+	srand(static_cast<unsigned>(time(0)));
+	int time{ rand() % 100 + 20 };
 	// Simulate mouse click
 	input.type = INPUT_MOUSE;
 	input.mi.dwFlags = MOUSEEVENTF_LEFTDOWN;
@@ -51,4 +52,5 @@ void click_mouse()
 
 	// Delay between clicks
 	Sleep((DWORD)time);
+	
 }
